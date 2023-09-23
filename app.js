@@ -16,6 +16,8 @@ require('dotenv').config();
 
 const userName = process.env.USERNAME;
 const apiKey = process.env.APIKEY;
+const region = process.env.REGION;
+const listId = process.env.LISTID;
 
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/signup.html")
@@ -41,7 +43,7 @@ app.post("/", function(req, res){
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us21.api.mailchimp.com/3.0/lists/70cca69d07";
+    const url = "https://" + region +".api.mailchimp.com/3.0/lists/" + listId;
 
     const options = {
         method: "POST",
@@ -72,5 +74,3 @@ app.post("/failure", function(req, res){
 app.listen(3000, function(){
     console.log("Server Up and running");
 });
-
-//70cca69d07 List ID
