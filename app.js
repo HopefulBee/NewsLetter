@@ -1,16 +1,3 @@
-// const mailchimp = require("@mailchimp/mailchimp_marketing");
-
-// mailchimp.setConfig({
-//   apiKey: "01e0f87c2029e284801d58bc31c9ab04-us21",
-//   server: "us21",
-// });
-
-// async function run() {
-//   const response = await mailchimp.ping.get();
-//   console.log(response);
-// }
-
-// run();
 const express = require ("express");
 
 const bodyParser = require("body-parser");
