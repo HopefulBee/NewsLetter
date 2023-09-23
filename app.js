@@ -12,6 +12,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(express.static("public"));
 
+require('dotenv').config();
+
+const userName = process.env.USERNAME;
+const apiKey = process.env.APIKEY;
+
 app.get("/", function(req, res){
     res.sendFile(__dirname + "/signup.html")
 });
@@ -40,7 +45,7 @@ app.post("/", function(req, res){
 
     const options = {
         method: "POST",
-        auth: "maria:118862fa6786b1fecfd387d69a2015dd-us21"
+        auth: userName + ":" + apiKey
     }
     
     const request = https.request(url,options,function(response){
